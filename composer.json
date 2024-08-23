@@ -1,0 +1,23 @@
+{
+    "name": "ericabouaf/middl",
+    "description": "A generic implementation of the middleware pattern in PHP",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Middl\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eric Abouaf",
+            "email": "eric.abouaf@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^1.11"
+    },
+    "require": {
+        "symfony/http-foundation": "^6.4|^7.0",
+        "psr/log": "^3.0"
+    }
+}
