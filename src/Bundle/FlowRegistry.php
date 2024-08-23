@@ -1,7 +1,8 @@
 <?php
 
-namespace Middl;
+namespace Middl\Bundle;
 
+use Middl\FlowInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;

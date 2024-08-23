@@ -17,6 +17,6 @@ abstract class BeforeAfterMiddleware extends AbstractMiddleware
         return $this->after($request, $response);
     }
 
-    abstract public function before(Request $request): Request;
+    abstract public function before(Request $request): void;
     abstract public function after(Request $request, Response $response): Response;
 }

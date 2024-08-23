@@ -9,8 +9,8 @@ class Response
     public readonly ParameterBag $parameters;
     public readonly Request $request;
 
-    private bool $isError = false;
-    private ?string $errorMessage = null;
+    //private bool $isError = false;
+    //private ?string $errorMessage = null;
 
     public function __construct(Request $request, array $parameters = [])
     {
@@ -18,7 +18,7 @@ class Response
         $this->parameters = new ParameterBag($parameters);
     }
 
-    public function getErrorMessage(): ?string
+    /* public function getErrorMessage(): ?string
     {
         return $this->errorMessage;
     }
@@ -34,7 +34,7 @@ class Response
     public function isError(): bool
     {
         return $this->isError;
-    }
+    }*/
 
     public function copy(string $sourceParam, string $destParam): void
     {
