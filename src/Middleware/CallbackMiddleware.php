@@ -14,6 +14,7 @@ class CallbackMiddleware extends AbstractMiddleware
 
     public function __invoke(Request $request, callable $next): Response
     {
+        /** @var Response */
         return $this->closure->call($this, $request, $next);
     }
 }

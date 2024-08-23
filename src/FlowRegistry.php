@@ -21,6 +21,7 @@ class FlowRegistry
      */
     public function getFlow(string $flowClassname): FlowInterface
     {
+        /** @var FlowInterface */
         return $this->flowContainer->get($flowClassname);
     }
 }

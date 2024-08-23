@@ -14,7 +14,9 @@ abstract class MiddlewareRunner
         $action = fn(Request $request): Response => new Response($request);
 
         foreach (array_reverse($middlewares) as $middleware) {
-            $middleware->setLogger($logger);
+            if ($logger !== null) {
+                $middleware->setLogger($logger);
+            }
             $action = fn(Request $request): Response => $middleware($request, $action);
         }
 
