@@ -7,6 +7,11 @@
             "Middl\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Middl\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Eric Abouaf",
@@ -14,7 +19,8 @@
         }
     ],
     "require-dev": {
-        "phpstan/phpstan": "^1.11"
+        "phpstan/phpstan": "^1.11",
+        "phpunit/phpunit": "^10.5"
     },
     "require": {
         "symfony/http-foundation": "^6.4|^7.0",
