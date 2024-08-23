@@ -1,6 +1,10 @@
 <?php
 
-namespace Middl;
+namespace Middl\Middleware;
+
+use Middl\AbstractMiddleware;
+use Middl\Request;
+use Middl\Response;
 
 class CallbackMiddleware extends AbstractMiddleware
 {
