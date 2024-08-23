@@ -75,7 +75,7 @@ class SampleBeforeAfterMiddleware extends BeforeAfterMiddleware
 }
 ```
 
-### Executing the Middlewares
+### Executing the Middlewares without a Flow
 
 To execute the middlewares, use the `run` method of the `MiddlewareRunner` class.
 
