@@ -10,9 +10,9 @@ composer require ericabouaf/middl
 
 ## Usage
 
-### Configuration des Middlewares
+### Middleware Configuration
 
-Pour configurer les middlewares, vous devez créer une classe qui étend `AbstractFlow` et implémente la méthode `configureMiddlewares`.
+To configure the middlewares, you need to create a class that extends `AbstractFlow` and implements the `configureMiddlewares` method.
 
 ```php
 use YourNamespace\AbstractFlow;
@@ -24,17 +24,17 @@ class SampleFlow extends AbstractFlow
     {
         return [
             new DummyMiddleware('example'),
-            // Ajoutez d'autres middlewares ici
+            // Add other middlewares here
         ];
     }
 }
 ```
 
-### Création d'un Middleware
+### Creating a Middleware
 
-Pour créer un middleware, vous pouvez étendre `AbstractMiddleware` ou `BeforeAfterMiddleware` selon vos besoins.
+To create a middleware, you can extend `AbstractMiddleware` or `BeforeAfterMiddleware` according to your needs.
 
-#### Exemple avec `AbstractMiddleware`
+#### Example with `AbstractMiddleware`
 
 ```php
 use YourNamespace\AbstractMiddleware;
@@ -45,15 +45,15 @@ class SampleCustomMiddleware extends AbstractMiddleware
 {
     public function __invoke(Request $request, callable $next): Response
     {
-        // Logique du middleware avant l'appel du prochain middleware
+        // Middleware logic before calling the next middleware
         $response = $next($request);
-        // Logique du middleware après l'appel du prochain middleware
+        // Middleware logic after calling the next middleware
         return $response;
     }
 }
 ```
 
-#### Exemple avec `BeforeAfterMiddleware`
+#### Example with `BeforeAfterMiddleware`
 
 ```php
 use YourNamespace\Middleware\BeforeAfterMiddleware;
@@ -64,20 +64,20 @@ class SampleBeforeAfterMiddleware extends BeforeAfterMiddleware
 {
     public function before(Request $request): void
     {
-        // Logique avant l'appel du prochain middleware
+        // Logic before calling the next middleware
     }
 
     public function after(Request $request, Response $response): Response
     {
-        // Logique après l'appel du prochain middleware
+        // Logic after calling the next middleware
         return $response;
     }
 }
 ```
 
-### Exécution des Middlewares
+### Executing the Middlewares
 
-Pour exécuter les middlewares, utilisez la méthode `run` de la classe `MiddlewareRunner`.
+To execute the middlewares, use the `run` method of the `MiddlewareRunner` class.
 
 ```php
 use YourNamespace\MiddlewareRunner;
@@ -89,7 +89,7 @@ $request = new Request(['param1' => 'value1']);
 $middlewares = [
     new SampleCustomMiddleware(),
     new SampleBeforeAfterMiddleware(),
-    // Ajoutez d'autres middlewares ici
+    // Add other middlewares here
 ];
 
 $response = MiddlewareRunner::run($middlewares, $request, new NullLogger());
